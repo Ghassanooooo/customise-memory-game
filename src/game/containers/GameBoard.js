@@ -6,6 +6,7 @@ import { bindActionCreators } from "redux";
 import * as actions from "../../store/actions";
 import "../css/GameBoard.css";
 import backImg from "../../assets/back.jpg";
+import { withRouter } from "react-router-dom";
 
 class GameBoard extends Component {
   componentDidUpdate() {
@@ -52,7 +53,7 @@ class GameBoard extends Component {
       setTimeout(() => {
         // startttttttttttttttttttttttttttttttttttttttttttttt
 
-        this.props.startGame();
+        this.props.startGame(this.props.match.params.id);
         console.log("user game id ", this.props.match);
       }, 2600);
     }
@@ -127,4 +128,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   actions
-)(GameBoard);
+)(withRouter(GameBoard));
