@@ -2,6 +2,9 @@
   "name": "customiseMemoryGame",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "10.6.0"
+  },
   "homepage": "https://Ghassanooooo.github.io/customise-memory-game/",
   "dependencies": {
     "@material-ui/core": "^3.5.1",
