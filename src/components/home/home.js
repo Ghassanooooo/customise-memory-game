@@ -16,8 +16,8 @@ class Home extends Component {
         <div className="m-auto">
           <h1>How good is your memory ???</h1>
 
-          <Link
-            to="/game"
+          <a
+            href="/game"
             type="button"
             className="wow bounceInLeft btn btn-primary btn-lg btn-block "
             style={{
@@ -29,7 +29,7 @@ class Home extends Component {
             }}
           >
             <i class="fas fa-gamepad mr-2" /> Play Now
-          </Link>
+          </a>
           <Link
             to="/startGame"
             type="button"
