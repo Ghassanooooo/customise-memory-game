@@ -241,7 +241,7 @@ class StartGame extends Component {
                               wordBreak: "break-word"
                             }}
                             type=""
-                            value={` http://${ip.address()}:3000/game-custom/${
+                            value={`https://customise-memory-game.herokuapp.com/game-custom/${
                               this.props.gameImgsData.user
                             }`}
                             readonly
