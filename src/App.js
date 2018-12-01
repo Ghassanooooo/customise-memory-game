@@ -19,16 +19,16 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Register from "./components/register/register";
 
+if (localStorage.getItem("tokenMemory")) {
+  const token = localStorage.getItem("tokenMemory");
+  setAxiosAuth(token);
+  const userDecoded = jwt_decode(token);
+  console.log(userDecoded);
+  store.dispatch(actions.currentUser(userDecoded));
+  store.dispatch(actions.getCurrentGame(userDecoded.id));
+}
 class App extends Component {
-  componentDidMount() {
-    if (localStorage.getItem("tokenMemory")) {
-      const token = localStorage.getItem("tokenMemory");
-      setAxiosAuth(token);
-      const userDecoded = jwt_decode(token);
-      store.dispatch(actions.currentUser(userDecoded));
-      store.dispatch(actions.getCurrentGame(userDecoded.id));
-    }
-  }
+  componentDidMount() {}
 
   render() {
     return (
@@ -46,7 +46,11 @@ class App extends Component {
                     <Route path="/startGame" exact component={StartGame} />
                     <Route path="/register" exact component={Register} />
                     <Route path="/game" exact component={Game} />
-                    <Route path="/game-custom/:id" exact component={Game} />
+                    <Route
+                      path="/game-custom/:name/:id"
+                      exact
+                      component={Game}
+                    />
                     <PrivateRoute path="/profile" exact component={Profile} />
                     <Redirect to="/" />
                   </Switch>

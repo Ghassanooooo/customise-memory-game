@@ -85,6 +85,11 @@ class StartGame extends Component {
       }
     ]
   };
+  componentWillMount() {
+    if (this.props.user) {
+      actions.getCurrentGame(this.props.user.id);
+    }
+  }
 
   onSubmitHandler = e => {
     e.preventDefault();
@@ -163,7 +168,7 @@ class StartGame extends Component {
               padding: "30px"
             }}
           >
-            Upload Your Custom Image
+            Upload Your Custom Images
           </h1>
           <form
             onSubmit={this.onSubmitHandler}
@@ -237,13 +242,14 @@ class StartGame extends Component {
                           </label>
                           <textarea
                             style={{
+                              height: "125px",
                               width: "100%",
                               wordBreak: "break-word"
                             }}
                             type=""
                             value={`https://customise-memory-game.herokuapp.com/game-custom/${
-                              this.props.gameImgsData.user
-                            }`}
+                              this.props.user.username
+                            }/${this.props.gameImgsData.user}`}
                             readonly
                           />
                         </div>
@@ -251,7 +257,9 @@ class StartGame extends Component {
                       <div style={{ height: "50%" }} className="row">
                         <div className="col">
                           <Link
-                            to={`/game-custom/${this.props.gameImgsData.user}`}
+                            to={`/game-custom/${this.props.user.username}/${
+                              this.props.gameImgsData.user
+                            }`}
                             type="button"
                             className="wow zoomIn btn btn-outline-primary btn-lg btn-block "
                             style={{
