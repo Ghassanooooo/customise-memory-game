@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../../store/actions";
 import "../css/ScoreBoard.css";
-import { withRouter } from "react-router-dom";
 
 class ScoreBoard extends Component {
   componentDidUpdate() {
@@ -37,7 +36,11 @@ class ScoreBoard extends Component {
           className={
             this.props.isStarting ? "gameButton--active" : "gameButton"
           }
-          onClick={this.props.startGame.bind(this, this.props.match.params.id)}
+          onClick={
+            this.props.gameId
+              ? this.props.startCustomGame.bind(this, this.props.gameId)
+              : this.props.startGame.bind(this)
+          }
         >
           {startOrReset}
         </button>
@@ -84,4 +87,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouter(ScoreBoard));
+)(ScoreBoard);

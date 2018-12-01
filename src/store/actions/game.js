@@ -1,14 +1,13 @@
 import * as actionType from "./actionTypes";
 import axios from "axios";
-
+import generateCards from "../../game/data/generateCards";
 export function pageLoading() {
   return {
     type: actionType.PAGE_LOADING
   };
 }
-
-export const startGame = userId => dispatch => {
-  console.log('user id',userId)
+export const startCustomGame = userId => dispatch => {
+  console.log("user id", userId);
   axios.get("https://memory-game-7.herokuapp.com/game/" + userId).then(game => {
     console.log(game.data.imgsGame);
     let cards = [];
@@ -39,6 +38,13 @@ export const startGame = userId => dispatch => {
     });
   });
 };
+export function startGame(test) {
+  console.log(test);
+  return {
+    type: actionType.START_GAME,
+    payload: generateCards()
+  };
+}
 
 export function showCard(card) {
   return {

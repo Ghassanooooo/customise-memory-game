@@ -5,8 +5,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../../store/actions";
 import "../css/GameBoard.css";
-import backImg from "../../assets/back.jpg";
-import { withRouter } from "react-router-dom";
+import backgroudImgCard from "../../assets/back.jpg";
 
 class GameBoard extends Component {
   componentDidUpdate() {
@@ -51,10 +50,9 @@ class GameBoard extends Component {
     if (complete.length === this.props.cards.length) {
       this.props.gameComplete();
       setTimeout(() => {
-        // startttttttttttttttttttttttttttttttttttttttttttttt
-
-        this.props.startGame(this.props.match.params.id);
-        console.log("user game id ", this.props.match);
+        this.props.gameId
+          ? this.props.startCustomGame(this.props.gameId)
+          : this.props.startGame();
       }, 2600);
     }
   }
@@ -72,8 +70,8 @@ class GameBoard extends Component {
         <div key={i} className="initialCardsWrapper">
           <img
             className="backgroundImg"
-            onLoad={this.handleImageLoaded}
-            src={backImg}
+            onLoad={this.handleImageLoaded.bind(this)}
+            src={this.props.gameId ? backgroudImgCard : backgroudImgCard}
             alt="backgroudImg"
           />
         </div>
@@ -125,7 +123,11 @@ const mapStateToProps = state => {
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(actions, dispatch);
+};
+
 export default connect(
   mapStateToProps,
-  actions
-)(withRouter(GameBoard));
+  mapDispatchToProps
+)(GameBoard);

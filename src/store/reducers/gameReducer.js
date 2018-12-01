@@ -2,7 +2,7 @@ import * as actionType from "../actions/actionTypes";
 import generateCards from "../../game/data/generateCards";
 
 const INITIAL_STATE = {
-  isPageLoading: true,
+  isPageLoading: false,
   cards: [],
   isStarting: false,
   scoreOn: false,
@@ -25,8 +25,7 @@ export default function game(state = INITIAL_STATE, action) {
     case actionType.START_GAME:
       return {
         ...state,
-        // cards: generateCards(),
-         cards: action.payload,
+        cards: action.payload,
         isStarting: true,
         show: true,
         gameOn: false
