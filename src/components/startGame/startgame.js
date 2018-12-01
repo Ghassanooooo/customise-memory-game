@@ -24,6 +24,7 @@ import Spinner from "../common/spinner/spinner";
 import WOW from "wowjs";
 import "./startGame.css";
 import Register from "../register/register";
+import "clipboard-copy-element";
 
 const styles = {
   row: {
@@ -195,9 +196,13 @@ class StartGame extends Component {
               disabled={checkArrayLength !== 8}
               type="submit"
             >
-              {checkArrayLength !== 8
-                ? "Please Select " + (8 - checkArrayLength) + " Images"
-                : "UPLOAD"}
+              {checkArrayLength !== 8 ? (
+                "Please Select " + (8 - checkArrayLength) + " Images"
+              ) : (
+                <Fragment>
+                  <i class="fas fa-upload" /> UPLOAD
+                </Fragment>
+              )}
             </button>
           </form>
           {this.props.loading ? (
@@ -240,18 +245,27 @@ class StartGame extends Component {
                           <label for="exampleInputEmail1">
                             <i class="fas fa-share-alt" /> Share The link:
                           </label>
+
                           <textarea
                             style={{
-                              height: "125px",
+                              height: "105px",
                               width: "100%",
-                              wordBreak: "break-word"
+                              wordBreak: "break-word",
+                              resize: "none"
                             }}
-                            type=""
+                            id="blob-path"
                             value={`https://customise-memory-game.herokuapp.com/game-custom/${
                               this.props.user.username
                             }/${this.props.gameImgsData.user}`}
-                            readonly
+                            disabled
                           />
+                          <clipboard-copy
+                            for="blob-path"
+                            class="btn btn-outline-info "
+                          >
+                            <i class="far fa-copy" />
+                            Copy
+                          </clipboard-copy>
                         </div>
                       </div>
                       <div style={{ height: "50%" }} className="row">
@@ -260,8 +274,7 @@ class StartGame extends Component {
                             to={`/game-custom/${this.props.user.username}/${
                               this.props.gameImgsData.user
                             }`}
-                            type="button"
-                            className="wow zoomIn btn btn-outline-primary btn-lg btn-block "
+                            className="wow zoomIn btn btn-outline-danger btn-lg btn-block "
                             style={{
                               height: "12vh",
                               width: "100%",
@@ -271,6 +284,10 @@ class StartGame extends Component {
                             }}
                           >
                             PLAY NOW
+                            <i
+                              class="fas fa-play ml-3 "
+                              style={{ color: "#6E4A84" }}
+                            />
                           </Link>
                         </div>
                       </div>
