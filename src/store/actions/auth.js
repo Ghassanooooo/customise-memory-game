@@ -23,7 +23,7 @@ export const signup = (dataUser, history) => async dispatch => {
     });
     dispatch({
       type: actionType.GET_ERRORS,
-      payload: e.response.data.error || null
+      payload: e.response.data ? e.response.data.error : null
     });
   }
 };
@@ -55,7 +55,7 @@ export const login = (data, history) => async dispatch => {
     });
     dispatch({
       type: actionType.GET_ERRORS,
-      payload: e.response.data.error || null
+      payload: e.response.data ? e.response.data.error : null
     });
   }
 };
