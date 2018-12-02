@@ -6,6 +6,7 @@ import { withRouter } from "react-router-dom";
 import * as actions from "../../store/actions";
 import "../css/ScoreBoard.css";
 import music from "../../assets/game.mp3";
+import winSound from "../../assets/winSound.wav";
 import ReactAudioPlayer from "react-audio-player";
 
 class ScoreBoard extends Component {
@@ -66,14 +67,7 @@ class ScoreBoard extends Component {
 
     return (
       <Fragment>
-        {this.props.isCompleted && (
-          <ReactAudioPlayer
-            src={
-              "https://www.noiseforfun.com/waves/fantasy-and-magic/NFF-cyber-bubbles-long.wav"
-            }
-            autoPlay
-          />
-        )}
+        {this.props.isCompleted && <ReactAudioPlayer src={winSound} autoPlay />}
         {this.props.cards.length > 0 && !this.props.isCompleted && (
           <ReactAudioPlayer src={music} autoPlay loop volume={0.6} />
         )}

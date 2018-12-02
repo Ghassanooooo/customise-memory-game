@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../../store/actions";
 import "../css/GameBoard.css";
-import backgroudImgCard from "../../assets/back.jpg";
-import matchCardsMusic from "../../assets/match.mp3";
+
+import matchSound from "../../assets/matchSound.wav";
 import ReactAudioPlayer from "react-audio-player";
 
 class GameBoard extends Component {
@@ -92,14 +92,7 @@ class GameBoard extends Component {
     cards = cards.map((card, i) => {
       return (
         <div className={card.flipped ? "card_active" : "card"} key={i}>
-          {card.matched && (
-            <ReactAudioPlayer
-              src={
-                "https://www.noiseforfun.com/waves/fantasy-and-magic/NFF-surpriser.wav"
-              }
-              autoPlay
-            />
-          )}
+          {card.matched && <ReactAudioPlayer src={matchSound} autoPlay />}
           <Card
             index={i}
             card={card}
