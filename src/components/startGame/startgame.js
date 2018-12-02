@@ -25,6 +25,8 @@ import WOW from "wowjs";
 import "./startGame.css";
 import Register from "../register/register";
 import "clipboard-copy-element";
+import createGameMusic from "../../assets/createGame.mp3";
+import ReactAudioPlayer from "react-audio-player";
 
 const styles = {
   row: {
@@ -208,6 +210,7 @@ class StartGame extends Component {
         <Spinner />
       ) : (
         <div className="container">
+          <ReactAudioPlayer src={createGameMusic} autoPlay loop volume={0.6} />
           <h1
             style={{
               padding: "30px"

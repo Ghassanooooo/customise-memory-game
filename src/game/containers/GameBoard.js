@@ -71,9 +71,15 @@ class GameBoard extends Component {
       initialCards.push(
         <div key={i} className="initialCardsWrapper">
           <img
+            style={{ width: "100%", height: "100%" }}
             className="backgroundImg"
             onLoad={this.handleImageLoaded.bind(this)}
-            src={this.props.gameId ? backgroudImgCard : backgroudImgCard}
+            //    src={this.props.gameId ? backgroudImgCard : backgroudImgCard}
+            src={
+              this.props.gameId
+                ? " https://i.pinimg.com/originals/58/17/85/581785ed38d3e41c25a22163c845abec.jpg"
+                : " https://i.pinimg.com/originals/58/17/85/581785ed38d3e41c25a22163c845abec.jpg"
+            }
             alt="backgroudImg"
           />
         </div>
