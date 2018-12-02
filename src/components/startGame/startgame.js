@@ -352,7 +352,7 @@ class StartGame extends Component {
                               wordBreak: "break-word",
                               resize: "none"
                             }}
-                            id="blob-path"
+                            id="blob-path2"
                             value={`https://memory-game-a17c2.firebaseapp.com/game-custom/${
                               this.props.user.username
                             }/${this.props.gameImgsData.user}`}
@@ -363,7 +363,7 @@ class StartGame extends Component {
                               position: "absolute",
                               right: "35px"
                             }}
-                            for="blob-path"
+                            for="blob-path2"
                             class="btn btn-outline-danger "
                           >
                             <i class="far fa-copy" />
