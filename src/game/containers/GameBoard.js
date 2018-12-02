@@ -92,7 +92,9 @@ class GameBoard extends Component {
     cards = cards.map((card, i) => {
       return (
         <div className={card.flipped ? "card_active" : "card"} key={i}>
-          {card.matched && <ReactAudioPlayer src={matchSound} autoPlay />}
+          {card.matched && !this.props.isCompleted && (
+            <ReactAudioPlayer src={matchSound} autoPlay />
+          )}
           <Card
             index={i}
             card={card}
