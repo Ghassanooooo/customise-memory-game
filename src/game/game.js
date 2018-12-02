@@ -22,7 +22,16 @@ class Game extends Component {
   }
   render() {
     return (
-      <div className="wow zoomIn App">
+      <div
+        className=" App"
+        style={{
+          background:
+            'url("https://i.pinimg.com/originals/ff/c9/69/ffc969925625c3156af6bd6ffd9a6267.jpg")',
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          height: "91.5vh"
+        }}
+      >
         <ScoreBoard gameId={this.props.match.params.id} />
         <GameBoard gameId={this.props.match.params.id} />
       </div>
