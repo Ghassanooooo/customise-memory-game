@@ -2,6 +2,7 @@ import * as actionType from "./actionTypes";
 import axios from "axios";
 import setAxiosAuth from "../../setAxiosAuthHeader";
 import jwt_decode from "jwt-decode";
+import * as actions from "./index";
 
 export const signup = (dataUser, history) => async dispatch => {
   try {
@@ -43,6 +44,7 @@ export const login = (data, history) => async dispatch => {
       localStorage.setItem("userId", user.data.userId);
       setAxiosAuth(user.data.token);
       const tokenDecoded = jwt_decode(user.data.token);
+      actions.getCurrentGame(tokenDecoded.id);
       dispatch({
         type: actionType.LOGIN_SUCCEED,
         payload: tokenDecoded

@@ -1,10 +1,12 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { withRouter } from "react-router-dom";
 import * as actions from "../../store/actions";
 import "../css/ScoreBoard.css";
+import music from "../../assets/game.mp3";
+import ReactAudioPlayer from "react-audio-player";
 
 class ScoreBoard extends Component {
   componentDidUpdate() {
@@ -63,13 +65,29 @@ class ScoreBoard extends Component {
     );
 
     return (
-      <div
-        className={this.props.isStarting ? "scoreBoard--active" : "scoreBoard"}
-      >
-        {loadingPage}
-        {showScore}
-        {button}
-      </div>
+      <Fragment>
+        {this.props.isCompleted && (
+          <ReactAudioPlayer
+            src={
+              "https://www.noiseforfun.com/waves/fantasy-and-magic/NFF-cyber-bubbles-long.wav"
+            }
+            autoPlay
+          />
+        )}
+        {this.props.cards.length > 0 && !this.props.isCompleted && (
+          <ReactAudioPlayer src={music} autoPlay loop volume={0.6} />
+        )}
+
+        <div
+          className={
+            this.props.isStarting ? "scoreBoard--active" : "scoreBoard"
+          }
+        >
+          {loadingPage}
+          {showScore}
+          {button}
+        </div>
+      </Fragment>
     );
   }
 }

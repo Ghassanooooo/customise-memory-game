@@ -119,6 +119,50 @@ class StartGame extends Component {
         // this.props.onImgsData(imgsData.data)
         console.log("data from backend", res.data);
         this.props.onImgsData(res.data);
+        this.setState({
+          imgData: [
+            {
+              name: "image1",
+              filedata: null,
+              imgUrl: null
+            },
+            {
+              name: "image2",
+              filedata: null,
+              imgUrl: null
+            },
+            {
+              name: "image3",
+              filedata: null,
+              imgUrl: null
+            },
+            {
+              name: "image4",
+              filedata: null,
+              imgUrl: null
+            },
+            {
+              name: "image5",
+              filedata: null,
+              imgUrl: null
+            },
+            {
+              name: "image6",
+              filedata: null,
+              imgUrl: null
+            },
+            {
+              name: "image7",
+              filedata: null,
+              imgUrl: null
+            },
+            {
+              name: "image8",
+              filedata: null,
+              imgUrl: null
+            }
+          ]
+        });
       })
       .catch(e => {
         console.log(e);
@@ -260,6 +304,10 @@ class StartGame extends Component {
                             disabled
                           />
                           <clipboard-copy
+                            style={{
+                              position: "absolute",
+                              right: "15px"
+                            }}
                             for="blob-path"
                             class="btn btn-outline-info "
                           >

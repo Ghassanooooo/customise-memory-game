@@ -30,8 +30,8 @@ class Home extends Component {
           >
             <i class="fas fa-gamepad mr-2" /> Play Now
           </a>
-          <Link
-            to="/startGame"
+          <a
+            href="/startGame"
             type="button"
             className="wow bounceInRight btn btn-danger btn-lg btn-block"
             style={{
@@ -44,7 +44,7 @@ class Home extends Component {
           >
             <i class="fas fa-hammer mr-2" />
             Create Your Game
-          </Link>
+          </a>
           <h2>Create your own interactive memory game</h2>
           <ul className="ulist">
             <li>upload your own images with just a few clicks</li>

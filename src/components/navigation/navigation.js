@@ -75,9 +75,9 @@ class Navigation extends Component {
     return (
       <nav className="navbar navbar-expand-lg bg-secondary navbar-light ">
         <div className="container">
-          <Link className="navbar-brand" to="/">
-            Navbar
-          </Link>
+          <a className="navbar-brand" href="/">
+            Memory Game
+          </a>
           <button
             className="navbar-toggler"
             type="button"
