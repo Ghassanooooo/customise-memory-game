@@ -199,11 +199,16 @@ class StartGame extends Component {
     ).length;
     console.log(this.state.imgData);
     let uploadButtonStyle = "btn btn-outline-secondary";
+
+    let uploadIconStyleR = "fas fa-arrow-right";
+    let uploadIconStyleL = "fas fa-arrow-left";
     if (checkArrayLength === 8) {
       const wow = new WOW.WOW();
 
       wow.init();
       uploadButtonStyle = "wow bounceIn btn btn-success";
+      uploadIconStyleR = "wow bounceIn fas fa-arrow-right";
+      uploadIconStyleL = "wow bounceIn fas fa-arrow-left";
     }
     return this.props.user ? (
       this.state.loading ? (
@@ -230,10 +235,21 @@ class StartGame extends Component {
               onChange={this.onChangeHandler}
               imgData={this.state.imgData}
             />
+            {checkArrayLength === 8 && (
+              <i
+                data-wow-duration="5s"
+                class={uploadIconStyleR}
+                style={{
+                  fontSize: "45px",
+                  padding: "0 15px",
+                  color: "blue"
+                }}
+              />
+            )}
             <button
               style={{
                 height: "10vh",
-                width: "30vw",
+                width: "35vw",
                 margin: "5vh auto",
                 fontSize: "35px",
                 padding: "10px"
@@ -251,6 +267,17 @@ class StartGame extends Component {
                 </Fragment>
               )}
             </button>
+            {checkArrayLength === 8 && (
+              <i
+                data-wow-duration="5s"
+                class={uploadIconStyleL}
+                style={{
+                  fontSize: "45px",
+                  padding: "0 15px",
+                  color: "blue"
+                }}
+              />
+            )}
           </form>
           {this.props.loading ? (
             <Spinner />

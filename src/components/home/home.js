@@ -48,7 +48,7 @@ class Home extends Component {
           <h2>Create your own interactive memory game</h2>
           <ul className="ulist">
             <li>upload your own images with just a few clicks</li>
-            <li>choose the size of the game</li>
+
             <li>invite your friends to play</li>
           </ul>
 
