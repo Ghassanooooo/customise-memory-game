@@ -317,7 +317,8 @@ class StartGame extends Component {
                       <div className="row" style={{ height: "50%" }}>
                         <div className="col">
                           <label for="exampleInputEmail1">
-                            <i class="fas fa-share-alt" /> Share The link:
+                            <i class="fas fa-share-alt" /> Share The Game With
+                            Your Friends 🤖:
                           </label>
 
                           <textarea
