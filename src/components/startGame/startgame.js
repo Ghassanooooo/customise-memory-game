@@ -323,7 +323,7 @@ class StartGame extends Component {
 
                           <textarea
                             style={{
-                              height: "105px",
+                              height: "89px",
                               width: "100%",
                               wordBreak: "break-word",
                               resize: "none"
@@ -337,10 +337,34 @@ class StartGame extends Component {
                           <clipboard-copy
                             style={{
                               position: "absolute",
-                              right: "15px"
+                              right: "35px"
                             }}
                             for="blob-path"
                             class="btn btn-outline-info "
+                          >
+                            <i class="far fa-copy" />
+                            Copy
+                          </clipboard-copy>
+                          <textarea
+                            style={{
+                              height: "80px",
+                              width: "100%",
+                              wordBreak: "break-word",
+                              resize: "none"
+                            }}
+                            id="blob-path"
+                            value={`https://memory-game-a17c2.firebaseapp.com/game-custom/${
+                              this.props.user.username
+                            }/${this.props.gameImgsData.user}`}
+                            disabled
+                          />
+                          <clipboard-copy
+                            style={{
+                              position: "absolute",
+                              right: "35px"
+                            }}
+                            for="blob-path"
+                            class="btn btn-outline-danger "
                           >
                             <i class="far fa-copy" />
                             Copy

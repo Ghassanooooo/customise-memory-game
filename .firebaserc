@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "memory-game",
+    "memory-game": "memory-game-a17c2"
+  }
+}
